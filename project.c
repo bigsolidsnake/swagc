@@ -8,21 +8,38 @@ void printSent() {
   "You", "I", "They", "He", "She"
   };
   static const char *adjs[] = {
-  "Cool", "Nice", "Stupid"
+  "Cool", "Gay", "Retarded"
   };
+  static const char *nouns[] = {
+  "Cock", "Drugs", "Children"
+  };
+  static const char *verbs2[] = {
+  "Like", "Eat", "Kill"
+  };
+  char append;
   const char *s = subs[rand() % 5];
   const char *a = adjs[rand() % 3];
-  char *verb;
+  const char *n = nouns[rand() % 3];
+  const char *v = verbs2[rand() % 3];
+  char *verb1;
+
   if (!strcmp(s, subs[0]) || !strcmp(s, subs[2])){
-    verb = "are";
+    verb1 = "are";
+    append = 0;
   }
   else if (!strcmp(s, subs[1])){
-    verb = "am";
+    verb1 = "am";
+    append = 0;
   }
   else {
-    verb = "is";
+    verb1 = "is";
+    append = 's';
   }
-  printf("%s %s %s\n", s, verb, a);
+
+  printf("%s %s %s and %s %s%c %s\n",
+      s, verb1, a,
+      s, v, append, n
+    );
 
 }
 
