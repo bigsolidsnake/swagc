@@ -17,10 +17,10 @@ void printSent() {
   "Like", "Eat", "Kill"
   };
   char append;
-  const char *s = subs[rand() % 5];
-  const char *a = adjs[rand() % 3];
-  const char *n = nouns[rand() % 3];
-  const char *v = verbs2[rand() % 3];
+  const char *s = subs[rand() % (sizeof(subs)/sizeof(char*))];
+  const char *a = adjs[rand() % (sizeof(adjs)/sizeof(char*))];
+  const char *n = nouns[rand() % (sizeof(nouns)/sizeof(char*))];
+  const char *v = verbs2[rand() % (sizeof(verbs2)/sizeof(char*))];
   char *verb1;
 
   if (!strcmp(s, subs[0]) || !strcmp(s, subs[2])){
@@ -45,7 +45,10 @@ void printSent() {
 
 int main () {
   srand(time(NULL));
-  for (int i = 0; i < 100; i++){
+  int sentNum;
+  printf("How many sentences?\n");
+  scanf("%d", &sentNum);
+  for (int i = 0; i < sentNum; i++){
   printSent();
   }
 }
